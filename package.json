@@ -11,6 +11,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "_moduleAliases": {
+    "@root": ".",
+    "@middlewares": "src/middlewares",
+    "@routes": "src/routes",
+    "@controllers": "src/controllers",
+    "@utils": "src/utils"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",
@@ -26,5 +33,8 @@
     "swagger-jsdoc": "^6.1.0",
     "swagger-ui-express": "^4.3.0",
     "validatorjs": "^3.22.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

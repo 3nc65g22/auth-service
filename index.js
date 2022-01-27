@@ -1,13 +1,15 @@
 "use strict";
 
-const envFile = process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : ".env";
+const env = process.env.NODE_ENV;
+const envFile = env ? `.env.${env}` : ".env";
 
 require("dotenv").config({ path: `${envFile}` });
 require("module-alias/register");
 
 const app = require("./src/app");
+const port = process.env.PORT;
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
   console.log(`Running in ${process.env.NODE_ENV.toUpperCase()} environment`);
-  console.log(`Listening on port ${process.env.PORT}`);
+  console.log(`Listening on port ${port}`);
 });
