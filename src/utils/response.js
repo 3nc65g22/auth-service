@@ -1,13 +1,11 @@
-'use strict';
+"use strict";
 
 function response(message, isSuccess = true, extraObj = {}) {
-	return {
-		success : isSuccess,
-		message : message,
-		...extraObj
-	}
+  return {
+    success: isSuccess,
+    message: message,
+    ...extraObj,
+  };
 }
 
-module.exports = {
-	response
-}
+module.exports = response;
