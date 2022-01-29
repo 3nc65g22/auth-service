@@ -6,7 +6,7 @@
   "scripts": {
     "start": "SET NODE_ENV=dev&&nodemon index.js",
     "dev": "SET NODE_ENV=dev&&nodemon index.js",
-    "prod": "SET NODE_ENV=prod&&index.js"
+    "prod": "SET NODE_ENV=prod&&nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,9 @@
     "@middlewares": "src/middlewares",
     "@routes": "src/routes",
     "@controllers": "src/controllers",
-    "@utils": "src/utils"
+    "@utils": "src/utils",
+    "@config": "src/config",
+    "@models": "src/models"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
