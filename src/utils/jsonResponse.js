@@ -1,6 +1,6 @@
 "use strict";
 
-function response(message, isSuccess = true, extraObj = {}) {
+function jsonResponse(message, isSuccess = true, extraObj = {}) {
   return {
     success: isSuccess,
     message: message,
@@ -8,4 +8,4 @@ function response(message, isSuccess = true, extraObj = {}) {
   };
 }
 
-module.exports = response;
+module.exports = jsonResponse;

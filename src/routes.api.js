@@ -1,5 +1,5 @@
 const tokenChecker = require("@middlewares/tokenChecker");
-const { response } = require("@utils");
+const { jsonResponse } = require("@utils");
 const { authController } = require("@controllers");
 
 module.exports = (route) => {
@@ -8,6 +8,6 @@ module.exports = (route) => {
   route.get("/login", authController.login);
 
   route.get("/some-endpoint", tokenChecker, ({ decoded: user }, res) => {
-    return res.json(response("verified", true, { user }));
+    return res.json(jsonResponse("verified", true, { user }));
   });
 };

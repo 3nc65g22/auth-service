@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const Validator = require("validatorjs");
 
 const { generateToken } = require("@utils/jwt");
-const { response } = require("@utils");
+const { jsonResponse } = require("@utils");
 
 const { user } = require("@models");
 
@@ -17,7 +17,7 @@ let login = async ({ body }, res) => {
   if (validation.fails()) {
     return res
       .status(400)
-      .json(response("Validation errors", false, validation.errors));
+      .json(jsonResponse("Validation errors", false, validation.errors));
   }
 
   try {
@@ -30,7 +30,7 @@ let login = async ({ body }, res) => {
 
     if (record) {
       if (!bcrypt.compareSync(body.password, record.password || "")) {
-        return res.status(400).json(response(`Invalid credentials`, false));
+        return res.status(400).json(jsonResponse(`Invalid credentials`, false));
       }
 
       let userData = { ...record };
@@ -38,11 +38,11 @@ let login = async ({ body }, res) => {
 
       const token = generateToken(userData).token;
 
-      return res.json(response(``, true, { accessToken: token }));
+      return res.json(jsonResponse(``, true, { accessToken: token }));
     }
   } catch (error) {
     console.log(error);
-    return res.json(response(`Error`, false));
+    return res.json(jsonResponse(`Error`, false));
   }
 };
 

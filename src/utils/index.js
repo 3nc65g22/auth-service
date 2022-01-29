@@ -1,5 +1,5 @@
-const response = require("./response");
+const jsonResponse = require("./jsonResponse");
 
 module.exports = {
-  response,
+  jsonResponse,
 };

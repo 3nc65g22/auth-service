@@ -1,7 +1,7 @@
 "use strict";
 
 const { verifyToken } = require("@utils/jwt");
-const { response } = require("@utils/response");
+const { jsonResponse } = require("@utils");
 
 module.exports = (req, res, next) => {
   let token =
@@ -13,13 +13,13 @@ module.exports = (req, res, next) => {
   if (token) {
     verifyToken(token, function (err, decoded) {
       if (err) {
-        return res.status(401).json(response(err.message, false));
+        return res.status(401).json(jsonResponse(err.message, false));
       }
       req.decoded = decoded;
       next();
     });
   } else {
-    // return res.status(400).json(response("No token provided.", false));
-    return res.status(400).json(response("Authentication failed.", false));
+    // return res.status(400).json(jsonResponse("No token provided.", false));
+    return res.status(400).json(jsonResponse("Authentication failed.", false));
   }
 };
