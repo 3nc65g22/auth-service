@@ -1,6 +1,6 @@
 "use strict";
 
-const env = process.env.NODE_ENV || "UKNOWN";
+const env = process.env.NODE_ENV;
 const envFile = env ? `.env.${env}` : ".env";
 
 require("dotenv").config({ path: `${envFile}` });
