@@ -19,7 +19,6 @@ module.exports = (req, res, next) => {
       next();
     });
   } else {
-    // return res.status(400).json(jsonResponse("No token provided.", false));
     return res.status(400).json(jsonResponse("Authentication failed.", false));
   }
 };
