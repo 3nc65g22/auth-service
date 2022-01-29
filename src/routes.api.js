@@ -1,3 +1,5 @@
+"use strict";
+
 const tokenChecker = require("@middlewares/tokenChecker");
 const { jsonResponse } = require("@utils");
 const { authController } = require("@controllers");
